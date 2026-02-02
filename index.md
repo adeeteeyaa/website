@@ -134,7 +134,7 @@ Professionally speaking, I have spent the last {% assign start_year = 2017 %}{% 
     <div class="experience-item">
         <div class="experience-header">
             <div class="company-logo">
-                <img src="/public/career/iisc-logo.svg" alt="Indian Institute of Science">
+                <img src="/public/career/iisc-logo.png" alt="Indian Institute of Science">
             </div>
             <div class="header-text">
                 <h4>Indian Institute of Science</h4>
@@ -154,7 +154,7 @@ Professionally speaking, I have spent the last {% assign start_year = 2017 %}{% 
 </div>
 
 # <i class="fa-solid fa-newspaper"></i> Publications
-<!-- <div class="pub-grid">
+<div class="pub-grid">
   <div class="pub-item">
     <div class="pub-content">
       <h4 class="pub-title">
@@ -170,12 +170,29 @@ Professionally speaking, I have spent the last {% assign start_year = 2017 %}{% 
     <div class="pub-links">
       <a href="/public/papers/wifi8-paper.pdf" class="btn-pub"><i class="fa-solid fa-file-pdf"></i> Google Scholar</a>
       <!-- <a href="#" class="btn-pub"><i class="fa-solid fa-quote-left"></i> Cite</a> -->
- <!--   </div>
+    </div>
   </div>
-</div> -->
+  <div class="pub-item">
+    <div class="pub-content">
+      <h4 class="pub-title">
+        <a href="https://doi.org/..." target="_blank">High-Efficiency Wi-Fi 8 MAC Layer Optimizations for AP Architecture</a>
+      </h4>
+      <div class="pub-authors">
+        <strong>Aditya Sathish</strong>, Shwetha Raghavendra Prasanna, et al.
+      </div>
+      <div class="pub-venue">
+        IEEE International Conference on Communications (ICC), 2025
+      </div>
+    </div>
+    <div class="pub-links">
+      <a href="/public/papers/wifi8-paper.pdf" class="btn-pub"><i class="fa-solid fa-file-pdf"></i> Google Scholar</a>
+      <!-- <a href="#" class="btn-pub"><i class="fa-solid fa-quote-left"></i> Cite</a> -->
+    </div>
+  </div>
+</div>
 
 
-# <i class="fa-solid fa-newspaper"></i> Life
+# <i class="fa-solid fa-sun"></i> Life
 Outside of work, I live in the city of San Jose in California, United States of America along with my wonderful wife.
 
 # History

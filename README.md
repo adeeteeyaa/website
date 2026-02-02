@@ -1,4 +1,6 @@
-# adeeteeyaa.github.io
+# adityasathish.com
+
+This repository contains the source code and material for everything that is currently hosted on [adityasathish.com](https://adityasathish.com).
 
 # Theme
 This website is based on Hyde.git.
