@@ -130,7 +130,7 @@ Professionally speaking, I have spent the last {% assign start_year = 2017 %}{% 
     <div class="pub-links">
       <a href="/public/papers/wifi8-paper.pdf" class="btn-pub"><i class="fa-solid fa-file-pdf"></i> Google Scholar</a>
       <!-- <a href="#" class="btn-pub"><i class="fa-solid fa-quote-left"></i> Cite</a> -->
-    </div>
+ <!--   </div>
   </div>
 </div> -->
 
