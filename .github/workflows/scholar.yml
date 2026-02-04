@@ -1,0 +1,44 @@
+name: Get citations and h-index from Google Scholar
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: scholar-data
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install scholarly jsonpickle
+
+      - name: Run Scholar Script
+        env:
+          GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+        run: |
+          # Move into the folder where main.py lives
+          cd ./scholar
+          python main.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # We add the results folder located inside the scholar directory
+          git add scholar/results/*.json
+          
+          # The "|| exit 0" ensures the workflow doesn't fail if the numbers haven't changed
+          git commit -m "Update Google Scholar stats" || exit 0
+          git push origin scholar-data
