@@ -125,7 +125,7 @@ Professionally speaking, I have spent the last {% assign start_year = 2017 %}{% 
 </div>
 
 # Sides
-When I'm not working, I like to spend a lot of time working on finding a way to organize my life, tinkering with software and hardware, working on cars and a little bit of photography and content creation.
+When I'm not working, I like to spend a lot of time working on finding a way to organize my life, tinkering with software and hardware, working on cars and a little bit of photography and content creation with my wife.
 
 # Life
 Outside of work, I live in the city of San Jose in California, United States of America along with my wonderful wife.
