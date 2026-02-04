@@ -21,12 +21,14 @@ print("Data retrieved successfully.")
 total_citations = author.get('citedby', 0)
 h_index = author.get('hindex', 0)
 i10_index = author.get('i10index', 0)
+num_pubs = len(author.get('publications', []))
 
 # 3. Create a clean JSON for your website
 stats = {
     "citations": total_citations,
     "hindex": h_index,
     "i10index": i10_index,
+    "publications": num_pubs, # Add this line
     "updated": datetime.now().isoformat() # 2. Add the timestamp in ISO format
 }
 

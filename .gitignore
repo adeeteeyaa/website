@@ -47,3 +47,7 @@ node_modules
 vendor/
 .bundle/
 Gemfile.lock
+
+# scholar-data related
+_data/
+public/
