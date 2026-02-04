@@ -3,9 +3,9 @@ import json
 import os
 
 # Create a proxy generator
-pg = ProxyGenerator()
-pg.FreeProxies() # This grabs a list of free proxies to bypass the block
-scholarly.use_proxy(pg)
+# pg = ProxyGenerator()
+# pg.FreeProxies() # This grabs a list of free proxies to bypass the block
+# scholarly.use_proxy(pg)
 
 # 1. Fetch author data
 print("Connecting to Google Scholar...")
