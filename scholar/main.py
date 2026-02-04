@@ -1,4 +1,4 @@
-from scholarly import scholarly
+from scholarly import scholarly, ProxyGenerator
 import json
 import os
 
