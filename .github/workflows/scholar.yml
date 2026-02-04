@@ -24,6 +24,7 @@ jobs:
           pip install scholarly jsonpickle
 
       - name: Run Scholar Script
+        timeout-minutes: 5 # Stops the job if it hangs too long
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
         run: |

@@ -40,7 +40,7 @@ As of today, {{ site.time | date: "%B" }} {% assign day = site.time | date: "%-d
   {% endfor %}   
 </div>
 
-# Work
+# Experience
 I have spent the last {% assign start_year = 2017 %}{% assign start_month = 8 %}{% assign start_day = 23 %}{% comment %} Get current date components as numbers {% endcomment %}{% assign current_year = "now" | date: "%Y" | plus: 0 %}{% assign current_month = "now" | date: "%m" | plus: 0 %}{% assign current_day = "now" | date: "%d" | plus: 0 %}{% comment %} Calculate raw year difference {% endcomment %}{% assign age = current_year | minus: start_year %} {% comment %} Subtract 1 if we haven't reached August 23rd yet this year {% endcomment %} {% if current_month < start_month %} {% assign age = age | minus: 1 %}{% elsif current_month == start_month and current_day < start_day %}{% assign age = age | minus: 1 %}{% endif %}{{ age }} years or so working closely on local and wide-area wireless communication systems - particularly Wi-Fi and 5G. While my job has always been in and around the Wi-Fi standard, I did complete a thesis in Virginia Tech focusing on the 3GPP 5G (and beyond) standard.
 <div class="grid">
 {% for item in site.data.work %}
@@ -76,7 +76,16 @@ I have spent the last {% assign start_year = 2017 %}{% assign start_month = 8 %}
   {% endfor %}   
 </div>
 
-# Patents
+# Work
+<div class="scholar-stats" style="display: flex; gap: 20px; margin: 20px 0;">
+  <div>
+    <strong>Citations:</strong> <span id="cite-count">Loading...</span>
+  </div>
+  <div>
+    <strong>h-index:</strong> <span id="h-index">Loading...</span>
+  </div>
+</div>
+## Patents
 <div class="grid">
 {% for item in site.data.patents %}
   <div class="grid-item">
@@ -103,7 +112,7 @@ I have spent the last {% assign start_year = 2017 %}{% assign start_month = 8 %}
   {% endfor %}   
 </div>
 
-# Publications
+## Publications
 <div class="grid">
 {% for item in site.data.publications %}
   <div class="grid-item">
@@ -125,7 +134,7 @@ I have spent the last {% assign start_year = 2017 %}{% assign start_month = 8 %}
   {% endfor %}   
 </div>
 
-# Reviewer
+## Reviews
 While I was at Virginia Tech, I was fortunate enough to be part of the Technical Program Commitee (TPC) in a few conferences.
 <div class="grid">
 {% for item in site.data.reviewer %}
@@ -151,3 +160,24 @@ While I was at Virginia Tech, I was fortunate enough to be part of the Technical
 
 # Sides
 When I'm not working, I like to spend a lot of time working on finding a way to organize my life, tinkering with software and hardware, working on cars and a little bit of photography and content creation with my wife. More to follow on this space.
+
+<script>
+  // Replace 'adityasathis' with your actual GitHub username if different
+  const dataUrl = 'https://raw.githubusercontent.com/adityasathis/website/scholar-data/scholar/results/gs_data.json';
+
+  fetch(dataUrl)
+    .then(response => {
+      if (!response.ok) throw new Error('Network response was not ok');
+      return response.json();
+    })
+    .then(data => {
+      // scholarly saves 'citedby' and 'hindex' as keys in the main object
+      document.getElementById('cite-count').innerText = data.citedby || '0';
+      document.getElementById('h-index').innerText = data.hindex || '0';
+    })
+    .catch(error => {
+      console.error('Error fetching Scholar data:', error);
+      document.getElementById('cite-count').innerText = 'N/A';
+      document.getElementById('h-index').innerText = 'N/A';
+    });
+</script>
