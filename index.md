@@ -5,6 +5,8 @@ title: Home
 
 Hi there and thank you for visiting my little spot on the internet! This website serves as a little window into who I am, what I do and what I think about.
 
+I'm a Senior Engineer at Qualcomm in the IEEE 802.11 Wi-Fi AP software team and work on the design and architecture for Qualcomm's Wi-Fi access point system software. Before this, I was a Graduate Student at Virginia Tech and a researcher at the Commonwealth Cyber Initiative.
+
 Below you will find information about my education, work experience, publications, skillset and a little about things I do outside of work.
 
 # Education
@@ -117,6 +119,30 @@ I have spent the last {% assign start_year = 2017 %}{% assign start_month = 8 %}
         <div class="grid-item-subtext">{{ item.authors | markdownify }}</div>
         <div class="grid-item-subtext"><i>{{ item.publisher }}</i></div>
         <div class="grid-item-subtext"><i>{{ item.status }}</i></div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}   
+</div>
+
+# Reviewer
+While I was at Virginia Tech, I was fortunate enough to be part of the Technical Program Commitee (TPC) in a few conferences.
+<div class="grid">
+{% for item in site.data.reviewer %}
+  <div class="grid-item">
+    <div class="grid-item-header">
+      <div class="grid-item-logo">
+        <img src="{{ item.logo }}" alt="{{ item.company }}">
+      </div>
+      <div class="grid-item-title">
+        <h4>
+          {% if item.url %}
+            <a href="{{ item.url }}" class="stretched-link" target="_blank">{{ item.title }}</a>
+          {% else %}
+            {{ item.title }}
+          {% endif %}
+        </h4>
+        <div class="grid-item-subtext"><i>{{ item.year }}</i></div>
       </div>
     </div>
   </div>
