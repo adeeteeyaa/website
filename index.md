@@ -78,15 +78,25 @@ I have spent the last {% assign start_year = 2017 %}{% assign start_month = 8 %}
 
 # Work
 <div class="scholar-box">
-  <div class="stat-item">
-    <span class="stat-value" id="cite-count">...</span>
-    <span class="stat-label">Citations</span>
+  <div class="stats-row">
+    <div class="stat-item">
+      <span class="stat-value" id="pub-count">...</span>
+      <span class="stat-label">Publications</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value" id="cite-count">...</span>
+      <span class="stat-label">Citations</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value" id="h-index">...</span>
+      <span class="stat-label">h-index</span>
+    </div>
   </div>
-  <div class="stat-item">
-    <span class="stat-value" id="h-index">...</span>
-    <span class="stat-label">h-index</span>
+  <div class="updated-flag">
+    Last updated: <span id="update-date">Loading...</span>
   </div>
 </div>
+
 ## Patents
 <div class="grid">
 {% for item in site.data.patents %}
@@ -164,8 +174,7 @@ While I was at Virginia Tech, I was fortunate enough to be part of the Technical
 When I'm not working, I like to spend a lot of time working on finding a way to organize my life, tinkering with software and hardware, working on cars and a little bit of photography and content creation with my wife. More to follow on this space.
 
 <script>
-  // Replace 'adityasathis' with your actual GitHub username if different
-  const dataUrl = 'https://raw.githubusercontent.com/adeeteeyaa/website/refs/heads/scholar-data/scholar/results/gs_stats.json';
+  const dataUrl = 'https://raw.githubusercontent.com/adeeteeyaa/website/scholar-data/scholar/results/gs_stats.json';
 
   fetch(dataUrl)
     .then(response => {
@@ -173,13 +182,26 @@ When I'm not working, I like to spend a lot of time working on finding a way to 
       return response.json();
     })
     .then(data => {
-      // scholarly saves 'citedby' and 'hindex' as keys in the main object
       document.getElementById('cite-count').innerText = data.citations || '0';
       document.getElementById('h-index').innerText = data.hindex || '0';
+      document.getElementById('pub-count').innerText = data.publications || '0'; // Add this  
+      
+      // Format the date (e.g., "Feb 4, 2026")
+      if (data.updated) {
+        const dateObj = new Date(data.updated);
+        document.getElementById('update-date').innerText = dateObj.toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+      } else {
+        document.getElementById('update-date').innerText = 'Recent';
+      }
     })
     .catch(error => {
-      console.error('Error fetching Scholar data:', error);
+      console.error('Error:', error);
       document.getElementById('cite-count').innerText = 'N/A';
       document.getElementById('h-index').innerText = 'N/A';
+      document.getElementById('pub-count').innerText = 'N/A';
+      document.getElementById('update-date').innerText = 'Update failed';
     });
-</script>
